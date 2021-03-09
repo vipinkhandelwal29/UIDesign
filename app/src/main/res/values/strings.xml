@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DesignTaskActivity</string>
+    <string name="selected_item">Selected item:</string>
+
+    <string-array name="Gender">
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+</resources>

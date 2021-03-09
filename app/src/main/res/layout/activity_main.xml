@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="selected"
+            type="int" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <FrameLayout
+            android:id="@+id/flRoot"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/lltab"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:background="@drawable/bottomsheet"
+            android:id="@+id/lltab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:id="@+id/tvFeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_component_18___1"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="Feed"
+                android:textColor="@{selected==1?@android:color/holo_red_dark:@color/black}"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tvMarket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_component_19___1"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="Market"
+                android:textColor="@{selected==2?@android:color/holo_red_dark:@color/black}"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tvSell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_component_20___1"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="Sell"
+                android:textColor="@{selected==3?@android:color/holo_red_dark:@color/black}"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tvActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_component_21___1"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="Activity"
+                android:textColor="@{selected==4?@android:color/holo_red_dark:@color/black}"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_component_22___1"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="Me"
+                android:textColor="@{selected==5?@android:color/holo_red_dark:@color/black}"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
