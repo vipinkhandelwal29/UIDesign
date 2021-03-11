@@ -1,55 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="productImages"
             type="com.example.android.designtaskactivity.bean.ProductListResponseFields" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_height="120dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp">
 
         <ImageView
             android:id="@+id/ivFirstImg"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher_foreground"
-            android:background="@color/purple_200"
-            android:layout_marginEnd="4dp"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"
-            />
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_marginStart="4dp">
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/carve_from_four_cornor"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivSecondImg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/ivSecondImg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_foreground"
-                android:background="@color/purple_200"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="1"
-                />
-            <ImageView
-                android:id="@+id/ivThirdImg"
-                android:scaleType="centerCrop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_foreground"
-                android:background="@color/purple_200"
-                android:layout_weight="1"
-                />
-        </LinearLayout>
-    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivSecondImg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/carve_from_four_cornor"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivThirdImg"
+            app:layout_constraintStart_toEndOf="@id/ivFirstImg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivThirdImg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/carve_from_four_cornor"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSecondImg"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

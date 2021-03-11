@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="productImages"
             type="com.example.android.designtaskactivity.bean.ProductListResponseFields" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -16,25 +18,71 @@
 
         <ImageView
             android:id="@+id/ivFirstImg"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_foreground"
-            android:background="@color/purple_200"
             android:layout_marginEnd="4dp"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"
-            />
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/carve_from_four_cornor"
+
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toTopOf="@id/ivSecondImg"
+            app:layout_constraintEnd_toStartOf="@id/ivThreeImg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivSecondImg"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/carve_from_four_cornor"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/ivFirstImg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivFirstImg" />
+
+        <ImageView
+            android:id="@+id/ivThreeImg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/carve_from_four_cornor"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_foreground"
-            android:background="@color/purple_200"
-            android:layout_marginStart="4dp"
-            android:layout_weight="1"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivFourImg"
+            app:layout_constraintStart_toEndOf="@id/ivFirstImg"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/ivFourImg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/carve_from_four_cornor"
+
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toTopOf="@id/ivFiveImg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivThreeImg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/ivFiveImg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/carve_from_four_cornor"
+
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ivFourImg"
+            app:layout_constraintTop_toBottomOf="@id/ivFourImg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

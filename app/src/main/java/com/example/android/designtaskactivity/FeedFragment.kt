@@ -11,8 +11,7 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>() {
     override fun getLayoutId() = R.layout.fragment_feed
 
     private var adapter: PhotoAdapter? = null
-    private lateinit var photoList: ArrayList<NewArrivalItem>
-    private lateinit var newItem: NewArrivalItem
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,11 +26,11 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>() {
         imageList.add("https://randomuser.me/api/portraits/men/51.jpg")
         imageList.add("https://randomuser.me/api/portraits/men/37.jpg")
         imageList.add("https://randomuser.me/api/portraits/men/0.jpg")
-        /*  imageList.add("https://randomuser.me/api/portraits/women/86.jpg")
-          imageList.add("https://randomuser.me/api/portraits/men/32.jpg")
-          imageList.add("https://randomuser.me/api/portraits/women/4.jpg")
-          imageList.add("https://randomuser.me/api/portraits/women/79.jpg")*/
-        /*imageList.add("https://randomuser.me/api/portraits/men/51.jpg")*/
+        imageList.add("https://randomuser.me/api/portraits/women/86.jpg")
+        imageList.add("https://randomuser.me/api/portraits/men/32.jpg")
+        imageList.add("https://randomuser.me/api/portraits/women/4.jpg")
+       /* imageList.add("https://randomuser.me/api/portraits/women/79.jpg")
+        imageList.add("https://randomuser.me/api/portraits/men/51.jpg")*/
 
         val dataList = ArrayList<NewArrivalItem>()
         val manager = LinearLayoutManager(requireContext().applicationContext)
@@ -43,47 +42,47 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>() {
         while (total > 0) {
             if (dataList.isEmpty()) {
                 when {
-                    total >= 3 -> {
+                    total >= 4 -> {
                         val mediaList = arrayListOf<String>()
-                        for (i in 0..2) {
+                        for (i in 0..3) {
                             mediaList.add(imageList[0])
                             imageList.removeAt(0)
                         }
-                        dataList.add(NewArrivalItem(3, 1, mediaList))
-                        total -= 3
+                        dataList.add(NewArrivalItem(4, 1, mediaList))
+                        total -= 4
 
                     }
-                    total == 2 -> {
+                    total == 5 -> {
                         val mediaList = arrayListOf<String>()
-                        for (i in 0..1) {
+                        for (i in 0..4) {
                             mediaList.add(imageList[0])
                             imageList.removeAt(0)
                         }
-                        dataList.add(NewArrivalItem(2, 2, mediaList))
-                        total -= 2
+                        dataList.add(NewArrivalItem(5, 2, mediaList))
+                        total -= 5
                     }
                     else -> {
                         val mediaList = arrayListOf<String>()
                         mediaList.add(imageList[0])
                         imageList.removeAt(0)
-                        dataList.add(NewArrivalItem(1, 3, mediaList))
-                        total -= 1
+                        dataList.add(NewArrivalItem(3, 3, mediaList))
+                        total -= 3
                     }
                 }
             } else {
-                val lastType = dataList.last()!!.type
-                val secondLastType = if (dataList.size > 1) dataList[dataList.size - 2]!!.type else -1
+                val lastType = dataList.last().type
+                val secondLastType = if (dataList.size > 1) dataList[dataList.size - 2].type else -1
                 when {
                     total >= 3 -> {
                         when (lastType) {
                             1, 4 -> {
                                 val mediaList = arrayListOf<String>()
-                                for (i in 0..1) {
+                                for (i in 0..4) {
                                     mediaList.add(imageList[0])
                                     imageList.removeAt(0)
                                 }
-                                dataList.add(NewArrivalItem(2, 2, mediaList))
-                                total -= 2
+                                dataList.add(NewArrivalItem(5, 2, mediaList))
+                                total -= 5
                             }
                             2 -> {
                                 val mediaList = arrayListOf<String>()
@@ -92,15 +91,15 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>() {
                                         mediaList.add(imageList[0])
                                         imageList.removeAt(0)
                                     }
-                                    dataList.add(NewArrivalItem(3, 4, mediaList))
+                                    dataList.add(NewArrivalItem(3, 3, mediaList))
                                     total -= 3
                                 } else {
-                                    for (i in 0..2) {
+                                    for (i in 0..3) {
                                         mediaList.add(imageList[0])
                                         imageList.removeAt(0)
                                     }
-                                    dataList.add(NewArrivalItem(3, 1, mediaList))
-                                    total -= 3
+                                    dataList.add(NewArrivalItem(4, 1, mediaList))
+                                    total -= 4
 
                                 }
                             }
@@ -108,19 +107,19 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>() {
                     }
                     total == 2 -> {
                         val mediaList = arrayListOf<String>()
-                        for (i in 0..1) {
+                        for (i in 0..4) {
                             mediaList.add(imageList[0])
                             imageList.removeAt(0)
                         }
-                        dataList.add(NewArrivalItem(2, 2, mediaList))
-                        total -= 2
+                        dataList.add(NewArrivalItem(5, 2, mediaList))
+                        total -= 5
                     }
                     else -> {
                         val mediaList = arrayListOf<String>()
                         mediaList.add(imageList[0])
                         imageList.removeAt(0)
-                        dataList.add(NewArrivalItem(1, 3, mediaList))
-                        total -= 1
+                        dataList.add(NewArrivalItem(3, 3, mediaList))
+                        total -= 3
                     }
                 }
             }

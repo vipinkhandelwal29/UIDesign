@@ -30,12 +30,6 @@ class PhotoAdapter(private val photoList: ArrayList<NewArrivalItem>) :
                 parent,
                 false
             )
-        ) else if (viewType == 3) PhotoForthViewHolder(
-            ForthLayerBinding.inflate(
-                (parent.context as Activity).layoutInflater,
-                parent,
-                false
-            )
         ) else PhotoThirdViewHolder(
             ThirdLayerBinding.inflate(
                 (parent.context as Activity).layoutInflater,
@@ -50,47 +44,30 @@ class PhotoAdapter(private val photoList: ArrayList<NewArrivalItem>) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is PhotoFirstViewHolder) {
             val images = photoList[position].productList
-            Glide.with(holder.itemCell.ivFirstImg.context)
-                .load(images[0])
-                .into(holder.itemCell.ivFirstImg)
-
-            Glide.with(holder.itemCell.ivSecondImg.context)
-                .load(images[1])
-                .into(holder.itemCell.ivSecondImg)
-
-            Glide.with(holder.itemCell.ivThirdImg.context)
-                .load(images[2])
-                .into(holder.itemCell.ivThirdImg)
+            Glide.with(holder.itemCell.ivFirstImg.context).load(images[0]).into(holder.itemCell.ivFirstImg)
+            Glide.with(holder.itemCell.ivSecondImg.context).load(images[1]).into(holder.itemCell.ivSecondImg)
+            Glide.with(holder.itemCell.ivThirdImg.context).load(images[2]).into(holder.itemCell.ivThirdImg)
+            Glide.with(holder.itemCell.ivFourImg.context).load(images[3]).into(holder.itemCell.ivFourImg)
 
         } else if (holder is PhotoSecondViewHolder) {
             val images = photoList[position].productList
-            Glide.with(holder.itemCell.ivFirstImg.context)
-                .load(images[0])
-                .into(holder.itemCell.ivFirstImg)
-
-            Glide.with(holder.itemCell.ivSecondImg.context)
-                .load(images[1])
-                .into(holder.itemCell.ivSecondImg)
+            Glide.with(holder.itemCell.ivFirstImg.context).load(images[0]).into(holder.itemCell.ivFirstImg)
+            Glide.with(holder.itemCell.ivSecondImg.context).load(images[1]).into(holder.itemCell.ivSecondImg)
+            Glide.with(holder.itemCell.ivThreeImg.context).load(images[2]).into(holder.itemCell.ivThreeImg)
+            Glide.with(holder.itemCell.ivFourImg.context).load(images[3]).into(holder.itemCell.ivFourImg)
+            Glide.with(holder.itemCell.ivFiveImg.context).load(images[4]).into(holder.itemCell.ivFiveImg)
 
         } else if (holder is PhotoThirdViewHolder) {
             val images = photoList[position].productList
-            Glide.with(holder.itemCell.ivFirstImg.context)
-                .load(images[0])
-                .into(holder.itemCell.ivFirstImg)
-
-            Glide.with(holder.itemCell.ivSecondImg.context)
-                .load(images[1])
-                .into(holder.itemCell.ivSecondImg)
-
-            Glide.with(holder.itemCell.ivThirdImg.context)
-                .load(images[2])
-                .into(holder.itemCell.ivThirdImg)
-        } else if (holder is PhotoForthViewHolder) {
+            Glide.with(holder.itemCell.ivFirstImg.context).load(images[0]).into(holder.itemCell.ivFirstImg)
+            Glide.with(holder.itemCell.ivSecondImg.context).load(images[1]).into(holder.itemCell.ivSecondImg)
+            Glide.with(holder.itemCell.ivThirdImg.context).load(images[2]).into(holder.itemCell.ivThirdImg)
+        } /*else if (holder is PhotoForthViewHolder) {
             val images = photoList[position].productList
             Glide.with(holder.itemCell.ivFirstImg.context)
                 .load(images[0])
                 .into(holder.itemCell.ivFirstImg)
-        }
+        }*/
     }
 
     class PhotoFirstViewHolder(val itemCell: FirstLayerBinding) :
@@ -102,7 +79,7 @@ class PhotoAdapter(private val photoList: ArrayList<NewArrivalItem>) :
     class PhotoThirdViewHolder(val itemCell: ThirdLayerBinding) :
         RecyclerView.ViewHolder(itemCell.root)
 
-    class PhotoForthViewHolder(val itemCell: ForthLayerBinding) :
-        RecyclerView.ViewHolder(itemCell.root)
+    /*class PhotoForthViewHolder(val itemCell: ForthLayerBinding) :
+        RecyclerView.ViewHolder(itemCell.root)*/
 
 }
