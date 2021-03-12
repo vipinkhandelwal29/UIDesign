@@ -20,12 +20,13 @@
         <ImageView
             android:id="@+id/ivFirstImg"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginEnd="4dp"
             android:background="@drawable/carve_from_four_cornor"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintBottom_toTopOf="@id/ivFourImg"
+            app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toStartOf="@id/ivSecondImg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,13 +34,14 @@
         <ImageView
             android:id="@+id/ivSecondImg"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:background="@drawable/carve_from_four_cornor"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintBottom_toBottomOf="@id/ivFirstImg"
+            app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toStartOf="@id/ivThirdImg"
             app:layout_constraintStart_toEndOf="@id/ivFirstImg"
             app:layout_constraintTop_toTopOf="@id/ivFirstImg" />
@@ -60,7 +62,7 @@
         <ImageView
             android:id="@+id/ivFourImg"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/carve_from_four_cornor"
             android:scaleType="centerCrop"

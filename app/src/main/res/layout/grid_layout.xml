@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp">
+
+
+        <androidx.cardview.widget.CardView
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="8dp"
+            android:background="@drawable/carve_from_four_cornor"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/ivFirstImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/carve_from_four_cornor"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground"
+             />
+        </androidx.cardview.widget.CardView>
+
+        <!--  <ImageView
+              android:id="@+id/ivSecondImg"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:layout_marginStart="4dp"
+              android:layout_marginEnd="4dp"
+              android:background="@drawable/carve_from_four_cornor"
+              android:scaleType="centerCrop"
+              android:src="@drawable/ic_launcher_foreground"
+              app:layout_constraintBottom_toBottomOf="@id/ivFirstImg"
+              app:layout_constraintDimensionRatio="1"
+              app:layout_constraintEnd_toStartOf="@id/ivThirdImg"
+              app:layout_constraintStart_toEndOf="@id/ivFirstImg"
+              app:layout_constraintTop_toTopOf="@id/ivFirstImg" />
+
+          <ImageView
+              android:id="@+id/ivThirdImg"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:layout_marginStart="4dp"
+              android:background="@drawable/carve_from_four_cornor"
+              android:scaleType="centerCrop"
+              android:src="@drawable/ic_launcher_foreground"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@id/ivSecondImg"
+              app:layout_constraintTop_toTopOf="parent" />
+
+          <ImageView
+              android:id="@+id/ivFourImg"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:layout_marginTop="8dp"
+              android:background="@drawable/carve_from_four_cornor"
+              android:scaleType="centerCrop"
+              android:src="@drawable/ic_launcher_foreground"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="@id/ivSecondImg"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/ivFirstImg" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
