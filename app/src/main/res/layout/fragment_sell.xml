@@ -5,9 +5,93 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/black">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/dimen_320dp"
+            android:layout_height="@dimen/dimen_320dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle" />
+
+
+       <!-- <View
+            android:id="@+id/viewOne"
+            style="@style/line_description"
+            />
+
+        <View
+            android:id="@+id/viewTwo"
+            style="@style/line_description"
+            android:rotation="22.5" />
+
+        <View
+            android:id="@+id/viewThree"
+            style="@style/line_description"
+            android:rotation="45" />
+
+        <View
+            android:id="@+id/viewFour"
+            style="@style/line_description"
+            android:rotation="67.5" />
+
+        <View
+            android:id="@+id/viewFive"
+            style="@style/line_description"
+            android:rotation="90" />
+
+        <View
+            android:id="@+id/viewSix"
+            style="@style/line_description"
+            android:rotation="112.5" />
+
+        <View
+            android:id="@+id/viewSeven"
+            style="@style/line_description"
+            android:rotation="135" />
+
+        <View
+            android:id="@+id/viewEight"
+            style="@style/line_description"
+            android:rotation="157.5" />-->
+
+
+        <ImageView
+            android:id="@+id/ivImageOne"
+            style="@style/image_description" />
+
+        <ImageView
+            android:id="@+id/ivImageTwo"
+            style="@style/image_description" />
+
+        <ImageView
+            android:id="@+id/ivImageThree"
+            style="@style/image_description" />
+
+        <ImageView
+            android:id="@+id/ivImageFour"
+            style="@style/image_description" />
+
+        <ImageView
+            android:id="@+id/ivImageFive"
+            style="@style/image_description" />
+
+        <ImageView
+            android:id="@+id/ivImageSix"
+            style="@style/image_description" />
+
+        <ImageView
+            android:id="@+id/ivImageSeven"
+            style="@style/image_description" />
+
+        <ImageView
+            android:id="@+id/ivImageEight"
+            style="@style/image_description" />
+
+
+    </FrameLayout>
 </layout>

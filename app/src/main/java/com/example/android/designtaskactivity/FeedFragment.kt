@@ -43,13 +43,12 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>() {
 
         dataList.add(NewArrivalItem(14,imageList))
         Log.d("==>datalist", "$dataList")
-        //val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
 
 
         val gridLayoutManager = GridLayoutManager(requireContext().applicationContext,2)
         gridLayoutManager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                return if (position == 2 || position == 5 || position == 8 || position == 11 || position == 14) {
+                return if (position % 3 == 2 /*|| position == 5 || position == 8 || position == 11 || position == 14*/) {
                     2
                 } else {
                     1

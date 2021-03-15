@@ -20,12 +20,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             binding.selected = 2
         }
         binding.tvSell.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.flRoot, ActivityFragment())
+            supportFragmentManager.beginTransaction().replace(R.id.flRoot, SellFragment())
                 .commit()
             binding.selected = 3
         }
         binding.tvActivity.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.flRoot, SellFragment()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.flRoot, ActivityFragment()).commit()
             binding.selected = 4
         }
         binding.tvMe.setOnClickListener {
