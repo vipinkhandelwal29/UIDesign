@@ -9,8 +9,10 @@ import com.example.android.designtaskactivity.databinding.FruitItemCellBinding
 
 class FruitAdapter(
     private val fruitList: ArrayList<FruitData>,
-    private val totalPriceListener: () -> Unit
-) :
+    private val totalPriceListener: () -> Unit,
+    private val callEdit: String
+
+    ) :
     RecyclerView.Adapter<FruitAdapter.FruitViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FruitViewHolder {
         return FruitViewHolder(
@@ -27,6 +29,10 @@ class FruitAdapter(
     override fun onBindViewHolder(holder: FruitViewHolder, position: Int) {
 
         holder.itemCell.fruitDetail = this.fruitList[position]
+
+        holder.itemCell.tvDiscount.text = callEdit(holder.adapterPosition).toString()
+
+
         Glide.with(holder.itemCell.ivUserImage).load(fruitList[position].image)
             .circleCrop().into(holder.itemCell.ivUserImage)
 

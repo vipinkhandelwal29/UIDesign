@@ -15,10 +15,11 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="?attr/actionBarSize"
+            app:layout_constraintBottom_toTopOf="@id/tvTotal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/tvTotal"
             tools:listitem="@layout/fruit_item_cell" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -33,34 +34,54 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-<!--
-        <LinearLayout
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/rdGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:weightSum="10"
-           >
+            android:padding="4dp"
+            android:weightSum="4"
+            app:layout_constraintBottom_toTopOf="@id/tvTotal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvTotal1"
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rdNone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_weight="7"
-                android:gravity="center"
-                android:text="Total Price ="
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="None" />
 
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rdTen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="10%" />
 
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rdTwenty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="20%" />
 
-        </LinearLayout>-->
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rdThirty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="30%" />
+
+        </RadioGroup>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

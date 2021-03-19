@@ -7,6 +7,10 @@
         <variable
             name="fruitDetail"
             type="com.example.android.designtaskactivity.bean.FruitData" />
+
+        <variable
+            name="discount"
+            type="float" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -74,6 +78,17 @@
                 app:layout_constraintTop_toTopOf="@id/tvPrice" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDiscount"
+                android:text="@{String.valueOf((fruitDetail.price * fruitDetail.qty)- (fruitDetail.price * fruitDetail.qty * discount))}"
+                app:layout_constraintTop_toTopOf="@+id/tvKg"
+                app:layout_constraintBottom_toBottomOf="@id/tvKg"
+                android:layout_marginEnd="8dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,51 +99,47 @@
                 app:layout_constraintTop_toBottomOf="@id/tvPrice" />
 
 
-            <LinearLayout
-                android:id="@+id/llOne"
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
                 android:layout_marginBottom="4dp"
-                android:orientation="horizontal"
+                android:background="@drawable/btn_shape"
+                android:text="-"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvAmount"
                 app:layout_constraintStart_toEndOf="@id/tvQuantity"
-                app:layout_constraintTop_toBottomOf="@+id/tvPrice">
+                app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnSub"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_shape"
-                    android:text="-"
-                    android:textSize="16sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(fruitDetail.qty)}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/btnSub"
+                app:layout_constraintEnd_toStartOf="@id/btnAdd"
+                app:layout_constraintStart_toEndOf="@id/btnSub"
+                app:layout_constraintTop_toTopOf="@id/btnSub" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="8"
-                    android:padding="10dp"
-                    android:text="@{String.valueOf(fruitDetail.qty)}"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnAdd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_shape"
-                    android:text="+"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_shape"
+                android:text="+"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/btnSub"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvAmount"
+                app:layout_constraintTop_toTopOf="@id/btnSub" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

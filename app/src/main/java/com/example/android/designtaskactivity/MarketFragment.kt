@@ -3,6 +3,8 @@ package com.example.android.designtaskactivity
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.databinding.Observable
+import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.designtaskactivity.adapter.FruitAdapter
 import com.example.android.designtaskactivity.bean.FruitData
@@ -12,16 +14,14 @@ class MarketFragment : BaseFragment<FragmentMarketBinding>() {
     override fun getLayoutId() = R.layout.fragment_market
 
     private var adapter: FruitAdapter? = null
+    private val dataList = ArrayList<FruitData>()
+    private var discount = ObservableField<Double>(0.0)
 
-    //private val fruitList = ArrayList<FruitData>()
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-        val dataList = ArrayList<FruitData>()
-        dataList.add(FruitData(R.drawable.fruit, "Apple", 20F))
+        dataList.add(FruitData(R.drawable.fruit, "Apple", 20F,))
         dataList.add(FruitData(R.drawable.banana, "Banana", 30F))
         dataList.add(FruitData(R.drawable.mango, "Mango", 30F))
         dataList.add(FruitData(R.drawable.fruit, "Apple", 20F))
@@ -36,19 +36,46 @@ class MarketFragment : BaseFragment<FragmentMarketBinding>() {
 
         val manager = LinearLayoutManager(requireContext().applicationContext)
         binding.recyclerView.layoutManager = manager
-        /*adapter = FruitAdapter(dataList)
-        binding.recyclerView.adapter = adapter
-*/
+
         adapter = FruitAdapter(dataList, totalPriceListener = {
-            binding.tvTotal.text =
-                "Total Price = " + dataList.sumByDouble { it.price.toDouble() * it.qty }
-                    .toString() + "Rs"
+            updatePrice()
+        }, callEdit =
+        "Total Price = " + dataList.sumByDouble { (it.price.toDouble() * it.qty) - (it.price.toDouble() * it.qty * discount.get()!!) }
+            .toString() + "Rs"
+        )
 
-
+        discount.addOnPropertyChangedCallback(object : Observable.OnPropertyChangedCallback() {
+            override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
+                val discount = discount.get()!!.toFloat()
+            }
         })
 
+
         binding.recyclerView.adapter = adapter
 
+
+        binding.rdGroup.setOnCheckedChangeListener { group, checkedId ->
+            val radioButton = checkedId
+            if (binding.rdNone.isChecked) {
+                discount.set(0.0)
+            } else if (binding.rdTen.isChecked) {
+                discount.set(0.1)
+            } else if (binding.rdTwenty.isChecked) {
+                discount.set(0.2)
+            } else if (binding.rdThirty.isChecked) {
+                discount.set(0.3)
+            }
+            updatePrice()
+        }
+
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updatePrice() {
+        binding.tvTotal.text =
+            "Total Price = " + dataList.sumByDouble { (it.price.toDouble() * it.qty) - (it.price.toDouble() * it.qty * discount.get()!!) }
+                .toString() + "Rs"
     }
 
 }
