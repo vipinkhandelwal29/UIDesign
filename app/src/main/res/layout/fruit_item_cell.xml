@@ -8,9 +8,9 @@
             name="fruitDetail"
             type="com.example.android.designtaskactivity.bean.FruitData" />
 
-        <variable
-            name="discount"
-            type="float" />
+        <!-- <variable
+             name="discount"
+             type="float" />-->
     </data>
 
     <androidx.cardview.widget.CardView
@@ -20,11 +20,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         app:cardCornerRadius="10dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -79,14 +75,13 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvDiscount"
-                android:text="@{String.valueOf((fruitDetail.price * fruitDetail.qty)- (fruitDetail.price * fruitDetail.qty * discount))}"
-                app:layout_constraintTop_toTopOf="@+id/tvKg"
-                app:layout_constraintBottom_toBottomOf="@id/tvKg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvKg"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                app:layout_constraintTop_toTopOf="@+id/tvKg" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvQuantity"
@@ -97,7 +92,6 @@
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@id/tvPrice"
                 app:layout_constraintTop_toBottomOf="@id/tvPrice" />
-
 
 
             <androidx.appcompat.widget.AppCompatButton

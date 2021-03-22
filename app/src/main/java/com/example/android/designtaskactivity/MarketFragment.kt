@@ -3,7 +3,6 @@ package com.example.android.designtaskactivity
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import androidx.databinding.Observable
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.designtaskactivity.adapter.FruitAdapter
@@ -39,37 +38,27 @@ class MarketFragment : BaseFragment<FragmentMarketBinding>() {
 
         adapter = FruitAdapter(dataList, totalPriceListener = {
             updatePrice()
-        }, callEdit =
-        "Total Price = " + dataList.sumByDouble { (it.price.toDouble() * it.qty) - (it.price.toDouble() * it.qty * discount.get()!!) }
-            .toString() + "Rs"
-        )
-
-        discount.addOnPropertyChangedCallback(object : Observable.OnPropertyChangedCallback() {
-            override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-                val discount = discount.get()!!.toFloat()
+        }, callEdit = { textView ->
+            binding.rdGroup.setOnCheckedChangeListener { group, checkedId ->
+                val radioButton = checkedId
+                if (binding.rdNone.isChecked) {
+                    discount.set(0.0)
+                } else if (binding.rdTen.isChecked) {
+                    discount.set(0.1)
+                } else if (binding.rdTwenty.isChecked) {
+                    discount.set(0.2)
+                } else if (binding.rdThirty.isChecked) {
+                    discount.set(0.3)
+                }
+                updatePrice()
             }
+            textView.text = dataList.sumByDouble {
+                (it.price * it.qty) - (it.price * it.qty * discount.get()!!)
+            }.toString()
         })
-
-
         binding.recyclerView.adapter = adapter
-
-
-        binding.rdGroup.setOnCheckedChangeListener { group, checkedId ->
-            val radioButton = checkedId
-            if (binding.rdNone.isChecked) {
-                discount.set(0.0)
-            } else if (binding.rdTen.isChecked) {
-                discount.set(0.1)
-            } else if (binding.rdTwenty.isChecked) {
-                discount.set(0.2)
-            } else if (binding.rdThirty.isChecked) {
-                discount.set(0.3)
-            }
-            updatePrice()
-        }
-
-
     }
+
 
     @SuppressLint("SetTextI18n")
     private fun updatePrice() {
@@ -77,5 +66,4 @@ class MarketFragment : BaseFragment<FragmentMarketBinding>() {
             "Total Price = " + dataList.sumByDouble { (it.price.toDouble() * it.qty) - (it.price.toDouble() * it.qty * discount.get()!!) }
                 .toString() + "Rs"
     }
-
 }

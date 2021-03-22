@@ -31,4 +31,13 @@
         <item name="android:background">@color/black</item>
         <item name="android:layout_gravity">center</item>
     </style>
+
+    <style name="Theme.DesignTaskActivity.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DesignTaskActivity.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DesignTaskActivity.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

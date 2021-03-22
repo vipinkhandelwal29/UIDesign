@@ -41,7 +41,7 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>() {
         adapter = PhotoAdapter(dataList)
         binding.recyclerView.adapter = adapter*/
 
-        dataList.add(NewArrivalItem(14,imageList))
+        //dataList.add(NewArrivalItem(14,imageList))
         Log.d("==>datalist", "$dataList")
 
 

@@ -2,6 +2,7 @@ package com.example.android.designtaskactivity.adapter
 
 import android.app.Activity
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.designtaskactivity.bean.FruitData
@@ -10,9 +11,9 @@ import com.example.android.designtaskactivity.databinding.FruitItemCellBinding
 class FruitAdapter(
     private val fruitList: ArrayList<FruitData>,
     private val totalPriceListener: () -> Unit,
-    private val callEdit: String
+    private val callEdit: (textView: TextView) -> Unit
 
-    ) :
+) :
     RecyclerView.Adapter<FruitAdapter.FruitViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FruitViewHolder {
         return FruitViewHolder(
@@ -30,9 +31,6 @@ class FruitAdapter(
 
         holder.itemCell.fruitDetail = this.fruitList[position]
 
-        holder.itemCell.tvDiscount.text = callEdit(holder.adapterPosition).toString()
-
-
         Glide.with(holder.itemCell.ivUserImage).load(fruitList[position].image)
             .circleCrop().into(holder.itemCell.ivUserImage)
 
@@ -40,16 +38,18 @@ class FruitAdapter(
             if (fruitList[holder.adapterPosition].qty > 0) {
                 fruitList[holder.adapterPosition].qty -= 1
                 totalPriceListener()
+                callEdit(holder.itemCell.tvDiscount)
             }
         }
 
         holder.itemCell.btnAdd.setOnClickListener {
-            if (fruitList[holder.adapterPosition].qty < 10)
+            if (fruitList[holder.adapterPosition].qty < 10) {
                 fruitList[holder.adapterPosition].qty += 1
-            totalPriceListener()
+                totalPriceListener()
+                callEdit(holder.itemCell.tvDiscount)
+            }
         }
     }
-
 
     class FruitViewHolder(val itemCell: FruitItemCellBinding) :
         RecyclerView.ViewHolder(itemCell.root)
