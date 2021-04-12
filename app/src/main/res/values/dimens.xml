@@ -1,5 +1,18 @@
 <resources>
+    <dimen name="dimen_12sp">10sp</dimen>
+    <dimen name="dimen_14sp">14sp</dimen>
+    <dimen name="dimen_17sp">17sp</dimen>
+    <dimen name="dimen_18sp">18sp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="dimen_36dp">36dp</dimen>
+    <dimen name="dimen_75dp">75dp</dimen>
+    <dimen name="dimen_89dp">89dp</dimen>
+    <dimen name="dimen_29dp">29dp</dimen>
+    <dimen name="dimen_20dp">20dp</dimen>
+    <dimen name="dimen_60dp">60dp</dimen>
+    <dimen name="dimen_15dp">10dp</dimen>
+    <dimen name="dimen_24dp">24dp</dimen>
+    <dimen name="dimen_48dp">48dp</dimen>
 </resources>
